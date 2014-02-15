@@ -9,11 +9,20 @@
 var compile = require('swig').precompile;
 var gutil = require('gulp-util');
 var through = require('through2');
+var _ = require('lodash');
 
 var PLUGIN_NAME = 'gulp-swig-jst';
 
 module.exports = function (options) {
-  var stream = through.obj(function (file, enc, cb) {
+  var opts, defaults, stream;
+
+  defaults = {
+    toFile: false
+  };
+
+  opts = _.merge(defaults, options);
+
+  stream = through.obj(function (file, enc, cb) {
     var compiled;
 
     if (file.isNull()) {
@@ -25,6 +34,10 @@ module.exports = function (options) {
       try {
         compiled = compile(file.contents.toString(), options).tpl.toString().replace('anonymous', '');
         file.contents = new Buffer(compiled);
+
+        if(opts.toFile){
+          file.path = gutil.replaceExtension(file.path, ".js");
+        }
       }
       catch (err) {
         this.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
