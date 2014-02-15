@@ -2,6 +2,7 @@
   "name": "gulp-swig-jst",
   "version": "0.1.0",
   "description": "Compile Swig templates to a JST file using Gulp.",
+  "homepage": "https://github.com/codedsignal/gulp-swig-jst",
   "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
