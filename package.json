@@ -1,0 +1,35 @@
+{
+  "name"           : "gulp-swig-jst",
+  "version"        : "0.1.0",
+  "description"    : "Compile Swig templates to a JST file using Gulp.",
+  "main"           : "index.js",
+  "engines"        : {
+    "node": ">=0.10.0"
+  },
+  "scripts"        : {
+    "test": "mocha"
+  },
+  "keywords"       : [
+    "gulpplugin",
+    "jst",
+    "swig",
+    "template"
+  ],
+  "repository"     : {
+    "type": "git",
+    "url" : "https://github.com/codedsignal/gulp-swig-jst"
+  },
+  "author"         : {
+    "name" : "Oliver Turner",
+    "email": "oliver.turner@codedsignal.co.uk"
+  },
+  "license"        : "MIT",
+  "dependencies"   : {
+    "through2" : "~0.4.1",
+    "gulp-util": "~2.2.12",
+    "swig"     : "~1.3.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  }
+}
