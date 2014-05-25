@@ -30,6 +30,10 @@ module.exports = function (options) {
       return cb();
     }
 
+    // A file path must be specified in order for `extends`, `include` and
+    // `import` to work properly.
+    _.extend(opts, {filename: file.path});
+
     if (file.isBuffer()) {
       try {
         compiled = compile(file.contents.toString(), opts).tpl.toString().replace('anonymous', '');
