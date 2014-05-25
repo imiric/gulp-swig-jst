@@ -32,7 +32,7 @@ module.exports = function (options) {
 
     if (file.isBuffer()) {
       try {
-        compiled = compile(file.contents.toString(), options).tpl.toString().replace('anonymous', '');
+        compiled = compile(file.contents.toString(), opts).tpl.toString().replace('anonymous', '');
         file.contents = new Buffer(compiled);
 
         if(opts.toFile){
